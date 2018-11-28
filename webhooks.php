@@ -14,12 +14,12 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'follow' && $event['follow']['type'] == 'follow') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'message') {
 			// Get text sent
 			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			$event['type'] == 'follow';
+			$event['type'] == 'message';
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
