@@ -22,57 +22,7 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			$event['type'] == 'message';
 			// Build message to reply back
-			$messages = [{
-  "type": "bubble",
-  "styles": {
-    "header": {
-      "backgroundColor": "#ffaaaa"
-    },
-    "body": {
-      "backgroundColor": "#aaffaa"
-    },
-    "footer": {
-      "backgroundColor": "#aaaaff"
-    }
-  },
-  "header": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "header"
-      }
-    ]
-  },
-  "hero": {
-    "type": "image",
-    "url": "https://example.com/flex/images/image.jpg",
-    "size": "full",
-    "aspectRatio": "2:1"
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "body"
-      }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "footer"
-      }
-    ]
-  }
-}
-];
+			$messages = ['sadasd']
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
