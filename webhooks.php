@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 			$message = $event['events'][0]['message']['text'];
 			
 			if($message == "2"){
-			$text = $event['source']['userId'];
+			$text = "ใช่";
 			$event['type'] == 'message';
 			// Build message to reply back
 			$messages = [
@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 				
 			}else{
 				
-			$text2 = $message;
+			$text2 = "ไม่ใช่";
 			$event['type'] == 'message';
 			// Build message to reply back
 			$messages2 = [
