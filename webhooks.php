@@ -23,7 +23,7 @@ if (!is_null($events['events'])) {
 			$event['type'] == 'message';
 			// Build message to reply back
 			$messages = [
-				{
+				
 					  "type": "bubble", // ①
 					  "body": { // ②
 					    "type": "box", // ③
@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
 					      }
 					    ]
 					  }
-					}
+					
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
