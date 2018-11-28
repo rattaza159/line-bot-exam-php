@@ -17,7 +17,13 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			//$text = $event['source']['userId'];
-			$message = [{
+
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+			$event['type'] == 'message';
+			// Build message to reply back
+			$messages = [
+				{
 					  "type": "bubble", // ①
 					  "body": { // ②
 					    "type": "box", // ③
@@ -33,14 +39,7 @@ if (!is_null($events['events'])) {
 					      }
 					    ]
 					  }
-					}];
-			// Get replyToken
-			$replyToken = $event['replyToken'];
-			$event['type'] == 'message';
-			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $message
+					}
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
