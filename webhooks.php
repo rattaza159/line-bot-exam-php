@@ -17,7 +17,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			//$text = $event['source']['userId'];
-			$message = '{
+			$message = [{
 					  "type": "bubble", // ①
 					  "body": { // ②
 					    "type": "box", // ③
@@ -33,7 +33,7 @@ if (!is_null($events['events'])) {
 					      }
 					    ]
 					  }
-					}';
+					}];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			$event['type'] == 'message';
