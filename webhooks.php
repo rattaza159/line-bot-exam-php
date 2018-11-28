@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 				
 			}else{
 				
-			$text2 = $event['events'][0]['message']['text'];
+			$text2 = $message;
 			$event['type'] == 'message';
 			// Build message to reply back
 			$messages2 = [
