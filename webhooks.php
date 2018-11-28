@@ -17,23 +17,23 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			//$text = $event['source']['userId'];
-			$message = {
-  "type": "bubble", // ①
-  "body": { // ②
-    "type": "box", // ③
-    "layout": "horizontal",　// ④
-    "contents": [ // ⑤
-      {
-        "type": "text", // ⑥
-        "text": "Hello,"
-      },
-      {
-        "type": "text", // ⑥
-        "text": "World!"
-      }
-    ]
-  }
-};
+			$message = '{
+					  "type": "bubble", // ①
+					  "body": { // ②
+					    "type": "box", // ③
+					    "layout": "horizontal",　// ④
+					    "contents": [ // ⑤
+					      {
+						"type": "text", // ⑥
+						"text": "Hello,"
+					      },
+					      {
+						"type": "text", // ⑥
+						"text": "World!"
+					      }
+					    ]
+					  }
+					}';
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			$event['type'] == 'message';
