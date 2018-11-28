@@ -19,7 +19,7 @@ $text = $event['source']['userId'];
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($access_token);
 $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret]);
 
-$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($text);
+$textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("'.$text.'");
 $response = $bot->pushMessage($pushID, $textMessageBuilder);
 
 echo $response->getHTTPStatus() . ' ' . $response->getRawBody();
