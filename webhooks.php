@@ -13,7 +13,6 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			
-			$url = 'https://api.line.me/v2/bot/message/reply';
 			$replyToken = $event['replyToken'];
 			$Headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$message = $event['events'][0]['message']['text'];
@@ -31,23 +30,23 @@ if (!is_null($events['events'])) {
 				'messages' => [$messages],
 			];
 				
-				pushMsg($Headers,$Data)
+				pushMsg($Headers,$Data);
 				
 			}else{
 				
-			$text = "ไม่รู้จักคำสั่งครับ";
+			$text2 = "ไม่รู้จักคำสั่งครับ";
 			$event['type'] == 'message';
 			// Build message to reply back
-			$messages = [
+			$messages2 = [
 				'type'  => 'text',
-				'text'  => $text
+				'text'  => $text2
 			];
-			$Data = [
+			$Data2 = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages],
+				'messages' => [$messages2],
 			];
 				
-				pushMsg($Headers,$Data)
+				pushMsg($Headers,$Data2);
 					
 			}
 			
@@ -58,6 +57,7 @@ echo "OK";
 
 	function pushMsg($headers,$data){
 		
+		$url = 'https://api.line.me/v2/bot/message/reply';
 		$post = json_encode($data);
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
