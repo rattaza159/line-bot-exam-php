@@ -2,71 +2,37 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+JITGCBghQb8HCOHYBoiGdT78YRf8aUjBDT4XVR6/VJfmgtIYJLcaJYb63b9hfYTk/NKNvNs7Pr5L2k0E0AmI+7gdB04t89/1O/w1cDnyilFU=';
-// Get POST body content
-$content = file_get_contents('php://input');
-// Parse JSON
-$events = json_decode($content, true);
-//Validate parsed JSON data
-if (!is_null($events['events'])) {
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			
-			$replyToken = $event['replyToken'];
-			$Headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-			$message = $event['events'][0]['message']['text'];
-			
-			if($message == "2"){
-			$text = "ใช่";
-			$event['type'] == 'message';
-			// Build message to reply back
-			$messages = [
-				'type'  => 'text',
-				'text'  => $text
-			];
-			$Data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-				
-				pushMsg($Headers,$Data);
-				
-			}else{
-				
-			$text2 = "ไม่ใช่";
-			$event['type'] == 'message';
-			// Build message to reply back
-			$messages2 = [
-				'type'  => 'text',
-				'text'  => $text2
-			];
-			$Data2 = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages2],
-			];
-				
-				pushMsg($Headers,$Data2);
-					
-			}
-			
-		}
-	}
-}
-echo "OK";
-
-	function pushMsg($headers,$data){
-		
-		$url = 'https://api.line.me/v2/bot/message/reply';
-		$post = json_encode($data);
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-		$result = curl_exec($ch);
-		curl_close($ch);
-		echo $result . "\r\n";
-		
-	}
+ 
+   $content = file_get_contents('php://input');
+   $arrayJson = json_decode($content, true);
+   $arrayHeader = array();
+   $arrayHeader[] = "Content-Type: application/json";
+   $arrayHeader[] = "Authorization: Bearer {$accessToken}";
+   //รับข้อความจากผู้ใช้
+   $message = $arrayJson['events'][0]['message']['text'];
+   //รับ id ของผู้ใช้
+   $id = $arrayJson['events'][0]['source']['userId'];
+   #ตัวอย่าง Message Type "Text + Sticker"
+   if($message == "สวัสดี"){
+      $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+      $arrayPostData['messages'][1]['type'] = "sticker";
+      $arrayPostData['messages'][1]['packageId'] = "2";
+      $arrayPostData['messages'][1]['stickerId'] = "34";
+      pushMsg($arrayHeader,$arrayPostData);
+   }
+   function pushMsg($arrayHeader,$arrayPostData){
+      $strUrl = "https://api.line.me/v2/bot/message/push";
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$strUrl);
+      curl_setopt($ch, CURLOPT_HEADER, false);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      $result = curl_exec($ch);
+      curl_close ($ch);
+   }
+   exit;
