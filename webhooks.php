@@ -1,10 +1,7 @@
 <?php // callback.php
-
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-
 $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+JITGCBghQb8HCOHYBoiGdT78YRf8aUjBDT4XVR6/VJfmgtIYJLcaJYb63b9hfYTk/NKNvNs7Pr5L2k0E0AmI+7gdB04t89/1O/w1cDnyilFU=';
-
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -16,47 +13,23 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
-			//$text = $event['source']['userId'];
-
+			$text = $event['source']['userId'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			
 			$event['type'] == 'message';
 			// Build message to reply back
-			
-			   if($message == "วิธีใช้งาน"){
-				   
-		            $text = 'เอาไปเลยจ้าาาาา';
-				   
-			    $messages = [
+			$messages = [
 				'type'  => 'text',
 				'text'  => $text
-			    ];
-				   
-			      pushMsg($messages,$replyToken);
-				   
-			   }else{
-				   
-			     $text = 'ไม่เข้าใจคำสั่ง!!';
-				   
-			    $messages = [
-				'type'  => 'text',
-				'text'  => $text
-			    ];
-				   
-			      pushMsg($messages,$replyToken);
-				   
-			   }
-			function pushMsg($arrayPostData,$replyToken){
-				
+			];
+			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$arrayPostData],
+				'messages' => [$messages],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -65,9 +38,7 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-
 			echo $result . "\r\n";
-			}
 		}
 	}
 }
