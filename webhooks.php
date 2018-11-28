@@ -22,16 +22,35 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			$event['type'] == 'message';
 			// Build message to reply back
-			$messages = [
+			
+			   if($message == "วิธีใช้งาน"){
+				   
+		            $text = 'เอาไปเลยจ้าาาาา';
+				   
+			    $messages = [
 				'type'  => 'text',
 				'text'  => $text
-			];
-
-			// Make a POST Request to Messaging API to reply to sender
+			    ];
+				   
+			      pushMsg($messages);
+				   
+			   }else{
+				   
+			     $text = 'ไม่เข้าใจคำสั่ง!!';
+				   
+			    $messages = [
+				'type'  => 'text',
+				'text'  => $text
+			    ];
+				   
+			      pushMsg($messages);
+				   
+			   }
+			function pushMsg($arrayPostData){
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages],
+				'messages' => [$arrayPostData],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -46,6 +65,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
+			}
 		}
 	}
 }
