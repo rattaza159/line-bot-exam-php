@@ -17,7 +17,7 @@ if (!is_null($events['events'])) {
 			$Headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$message = $event['events'][0]['message']['text'];
 			
-			if($message == "วิธีการใช้งาน"){
+			if($message == "2"){
 			$text = $event['source']['userId'];
 			$event['type'] == 'message';
 			// Build message to reply back
