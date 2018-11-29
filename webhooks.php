@@ -19,22 +19,27 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
               {
          "to": $id,
          "messages": [
-          {
-           "type": "text",
-           "text": "Hello Quick Reply!",
-           "quickReply": {
-            "items": [
-             {
-              "type": "action",
-              "action": {
-               "type":"message",
-               "label":"Message",
-               "text":"Hello World!"
-              }
-             }
-            ]
-           }
-          }
+{
+	"type": "bubble",
+	"direction": "ltr",
+	"styles": {
+		"header": {
+			"backgroundColor": "#ffaaaa",
+		},
+		"body": {
+			"backgroundColor": "#aaffaa",
+			"separator": true,
+			"separatorColor": "#efefef"
+		},
+		"footer": {
+			"backgroundColor": "#aaaaff"
+		}
+	},
+	"header": {},
+	"hero": {},
+	"body": {},
+	"footer": {}
+}
          ]
         }
       ]
