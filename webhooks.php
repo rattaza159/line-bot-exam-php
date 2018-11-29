@@ -25,9 +25,9 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "เว็บไซต์";
-      $arrayPostData['messages'][1]['type'] = "uri";
-      $arrayPostData['messages'][1]['label'] = "เว็บไซต์";
-      $arrayPostData['messages'][1]['uri'] = "https://jsoneditoronline.org/";
+      $arrayPostData['messages'][1]['action']['type'] = "uri";
+      $arrayPostData['messages'][1]['action']['label'] = "เว็บไซต์";
+      $arrayPostData['messages'][1]['action']['uri'] = "https://jsoneditoronline.org/";
       pushMsg($arrayHeader,$arrayPostData);
    }
 
