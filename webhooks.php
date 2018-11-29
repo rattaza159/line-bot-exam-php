@@ -22,34 +22,16 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       $arrayPostData['messages'][1]['stickerId'] = "34";
       pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
-      
-     $arrayPostData = {
-          "to": "{$id}",
-          "messages": [{
-              "type": "flex",
-              "altText": "This is a Flex Message",
-              "contents": {
-                "type": "bubble",
-                "body": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "contents": [
-                    {
-                      "type": "button",
-                      "style": "primary",
-                      "height": "sm",
-                      "action": {
-                        "type": "uri",
-                        "label": "Add to Cart",
-                        "uri": "https://developers.line.me"
-                      }
-                    }
-                  ]
-                }
-              }
-          }]
-      }
- 
+    
+      $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "template";
+      $arrayPostData['messages'][0]['altText'] = "This is a Flex Message";
+      $arrayPostData['messages'][0]['template']['type'] = "confirm";
+      $arrayPostData['messages'][0]['template']['text'] = "Are you sure?";
+      $arrayPostData['messages'][0]['template']['actions']['layout'] = "vertical";
+      $arrayPostData['messages'][0]['template']['actions'][0]['type'] = "message";
+      $arrayPostData['messages'][0]['template']['actions'][0]['label'] = "Yes";
+      $arrayPostData['messages'][0]['template']['actions'][0]['text'] = "yes";
       pushMsg($arrayHeader,$arrayPostData);
    }
 
