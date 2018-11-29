@@ -23,17 +23,11 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
       $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "flex";
-      $arrayPostData['messages'][0]['altText'] = "This is a Flex Message";
-      $arrayPostData['messages'][0]['contents']['type'] = "bubble";
-      $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
-      $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
-      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['type'] = "button";
-      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['style'] = "primary";
-      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['height'] = "sm";
-      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['action']['type'] = "uri";
-      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['action']['label'] = "Add to Cart";
-      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['action']['uri'] = "https://www.sellterest.com/";
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "เว็บไซต์";
+      $arrayPostData['messages'][1]['type'] = "uri";
+      $arrayPostData['messages'][1]['label'] = "เว็บไซต์";
+      $arrayPostData['messages'][1]['uri'] = "https://jsoneditoronline.org/";
       pushMsg($arrayHeader,$arrayPostData);
    }
 
