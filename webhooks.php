@@ -14,10 +14,30 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    $id = $arrayJson['events'][0]['source']['userId'];
    #ตัวอย่าง Message Type "Text + Sticker"
    if($message == "สวัสดี"){
-      $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "uri";
-      $arrayPostData['messages'][0]['label'] = "สมัครใช้งาน";
-      $arrayPostData['messages'][0]['uri'] = "https://www.sellterest.com/";
+ 
+      $arrayPostData = [
+              {
+         "to": $id,
+         "messages": [
+          {
+           "type": "text",
+           "text": "Hello Quick Reply!",
+           "quickReply": {
+            "items": [
+             {
+              "type": "action",
+              "action": {
+               "type":"message",
+               "label":"Message",
+               "text":"Hello World!"
+              }
+             }
+            ]
+           }
+          }
+         ]
+        }
+      ]
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
