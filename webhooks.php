@@ -24,14 +24,10 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    }else if($message == "test"){
     
       $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "template";
-      $arrayPostData['messages'][0]['altText'] = "This is a Flex Message";
-      $arrayPostData['messages'][0]['template']['type'] = "confirm";
-      $arrayPostData['messages'][0]['template']['text'] = "Are you sure?";
-      $arrayPostData['messages'][0]['template']['actions']['layout'] = "vertical";
-      $arrayPostData['messages'][0]['template']['actions'][0]['type'] = "message";
-      $arrayPostData['messages'][0]['template']['actions'][0]['label'] = "Yes";
-      $arrayPostData['messages'][0]['template']['actions'][0]['text'] = "yes";
+      $arrayPostData['messages'][0]['type'] = "button";
+      $arrayPostData['messages'][0]['action']['type'] = "uri";
+      $arrayPostData['messages'][0]['action']['label'] = "Tap me";
+      $arrayPostData['messages'][0]['action']['uri'] = "https://example.com";
       pushMsg($arrayHeader,$arrayPostData);
    }
 
