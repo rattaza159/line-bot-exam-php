@@ -15,11 +15,9 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    #ตัวอย่าง Message Type "Text + Sticker"
    if($message == "สวัสดี"){
       $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-      $arrayPostData['messages'][1]['type'] = "sticker";
-      $arrayPostData['messages'][1]['packageId'] = "2";
-      $arrayPostData['messages'][1]['stickerId'] = "34";
+      $arrayPostData['messages'][0]['type'] = "uri";
+      $arrayPostData['messages'][0]['label'] = "สมัครใช้งาน";
+      $arrayPostData['messages'][1]['uri'] = "https://www.sellterest.com/";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
