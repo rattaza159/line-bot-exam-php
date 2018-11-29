@@ -15,7 +15,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    #ตัวอย่าง Message Type "Text + Sticker"
    if($message == "สวัสดี"){
  
-      $arrayPostData = [
+      $arrayPostData = 
               {
          "to": $id,
          "messages": [
@@ -42,7 +42,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
 }
          ]
         }
-      ]
+      
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
