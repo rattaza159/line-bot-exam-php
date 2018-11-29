@@ -15,11 +15,17 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    #ตัวอย่าง Message Type "Text + Sticker"
    if($message == "สวัสดี"){
       $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
-      $arrayPostData['messages'][1]['type'] = "sticker";
-      $arrayPostData['messages'][1]['packageId'] = "2";
-      $arrayPostData['messages'][1]['stickerId'] = "34";
+      $arrayPostData['messages'][0]['type'] = "flex";
+      $arrayPostData['messages'][0]['altText'] = "This is a Flex Message";
+      $arrayPostData['messages'][0]['contents']['type'] = "bubble";
+      $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
+      $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
+      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['type'] = "button";
+      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['style'] = "primary";
+      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['height'] = "sm";
+      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['action']['type'] = "uri";
+      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['action']['label'] = "Add to Cart";
+      $arrayPostData['messages'][0]['contents']['body']['layout']['contents'][0]['action']['uri'] = "https://www.sellterest.com/";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
