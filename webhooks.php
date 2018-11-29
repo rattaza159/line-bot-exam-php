@@ -23,7 +23,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
       
-       {
+     $arrayPostData = {
            "to": "userId or groupId",
            "messages": [{
                "type": "flex",
