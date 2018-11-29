@@ -17,7 +17,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "uri";
       $arrayPostData['messages'][0]['label'] = "สมัครใช้งาน";
-      $arrayPostData['messages'][1]['uri'] = "https://www.sellterest.com/";
+      $arrayPostData['messages'][0]['uri'] = "https://www.sellterest.com/";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
