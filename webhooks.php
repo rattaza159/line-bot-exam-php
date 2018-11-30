@@ -34,7 +34,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
          $arrayPostData['messages'][0]['contents']['body']['contents'][0]['height'] = "sm";
          $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['type'] = "uri";
          $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['label'] = "click";
-         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['uri'] = "https://www.sellterest.com/";
+         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['uri'] = "https://www.sellterest.com/LinebotRegister_view.php?userid={$id}";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
