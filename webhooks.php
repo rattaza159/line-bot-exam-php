@@ -26,7 +26,6 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
          $arrayPostData['to'] = $id;
          $arrayPostData['messages'][0]['type'] = "text";
          $arrayPostData['messages'][0]['text'] = "https://www.sellterest.com/";
-         $arrayPostData['messages'][0]['text'] = "คลิกเพื่อสมัครใช้แจ้งเตือน";
       pushMsg($arrayHeader,$arrayPostData);
    }
 
