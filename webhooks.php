@@ -23,7 +23,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
     
-         $arrayPostData = [{
+         $arrayPostData = [
               "to" => "Uf524e481d3e039764be0ffffd45ee5f3",
               "messages" => [
                     'type' => 'flex',
@@ -46,7 +46,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
                       ]
                     ]
                  ]
-            }]
+            ]
       pushMsg($arrayHeader,$arrayPostData);
    }
 
