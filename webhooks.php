@@ -21,6 +21,38 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       $arrayPostData['messages'][1]['packageId'] = "2";
       $arrayPostData['messages'][1]['stickerId'] = "34";
       pushMsg($arrayHeader,$arrayPostData);
+   }else if($message == "test"){
+    
+         $arrayPostData = [
+              "to" => "Uf524e481d3e039764be0ffffd45ee5f3",
+              "messages" => [
+                     {
+                       'type' : 'flex',
+                       'altText' : 'GGGGGG',
+                       'contents' : [
+                         'type' : 'bubble',
+                         'body' : {
+                          'type' : 'box',
+                          'layout' : 'vertical',
+                          'contents' :  [
+                                  {
+                            'type' : 'button',
+                            'style' : 'primary',
+                            'height' : 'sm',
+                            'action' : [
+                                      {
+                              'type' : 'uri',
+                              'label' : 'aasldjaslda',
+                              'uri' : 'https://www.sellterest.com/'
+                             }
+                                   ]
+                             }
+                                ]
+                         }
+                       ]
+                    }
+                 ]
+      pushMsg($arrayHeader,$arrayPostData);
    }
 
    function pushMsg($arrayHeader,$arrayPostData){
