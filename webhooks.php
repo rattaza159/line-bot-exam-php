@@ -34,11 +34,11 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
                     [{
                       "type": "button",
                       "style": "primary",
-                      "action": {
+                      "action": [{
                         "type": "uri",
                         "label": "Primary style button",
                         "uri": "https://developers.line.me"
-                      }
+                      }]
                     }]
                     }
                   }
