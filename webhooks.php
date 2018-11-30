@@ -24,32 +24,28 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    }else if($message == "test"){
     
          $arrayPostData = [{
-              "to": "Uf524e481d3e039764be0ffffd45ee5f3",
-              "messages":[
-                {
-                  "type": "flex",
-                  "altText": "This is a Flex Message",
-                  "contents": {
-                    "type": "bubble",
-                    "body": {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "button",
-                          "style": "primary",
-                          "height": "sm",
-                          "action": {
-                            "type": "uri",
-                            "label": "Add to Cart",
-                            "uri": "https://developers.line.me"
-                          }
-                        }
+              "to" => "Uf524e481d3e039764be0ffffd45ee5f3",
+              "messages" => [
+                    'type' => 'flex',
+                    'altText' => 'GGGGGG',
+                    'contents' => [
+                      'type' => 'bubble',
+                      'body' => [
+                       'type' => 'box',
+                       'layout' => 'vertical',
+                       'contents' =>  [
+                         'type' => 'button',
+                         'style' => 'primary',
+                         'height' => 'sm',
+                         'action' => [
+                           'type' => 'uri',
+                           'label' => 'aasldjaslda',
+                           'uri' => 'https://www.sellterest.com/'
+                         ]
+                       ]
                       ]
-                    }
-                  }
-                }
-                ]
+                    ]
+                 ]
             }]
       pushMsg($arrayHeader,$arrayPostData);
    }
