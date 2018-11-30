@@ -23,27 +23,18 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       
       pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
-      $arrayPostData = {
-           "to": $id,
-           "messages": [{
-                "type": "flex",
-                "altText" : "sdfsdf",
-                "contents": {
-                  "type" : "box",
-                  "layout" : "vertical",
-                  "contents" : [{
-                    "type" : "button",
-                    "style" : "priamry",
-                    "height": "sm",
-                    "action" : {
-                      "type" : "uri",
-                      "label" : "add click",
-                      "uri" : "https://www.sellterest.com/"
-                    }
-                  }]
-                }
-                  }]
-                };
+      $arrayPostData['to'] = $id;
+         $arrayPostData['messages'][0]['type'] = "flex";
+         $arrayPostData['messages'][0]['altText'] = ";akd;aks;a";
+         $arrayPostData['messages'][0]['contents']['type'] = "bubble";
+         $arrayPostData['messages'][0]['contents']['body']['type'] = "box";
+         $arrayPostData['messages'][0]['contents']['body']['layout'] = "vertical";
+         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['type'] = "button";
+         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['style'] = "primary";
+         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['height'] = "sm";
+         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['type'] = "uri";
+         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['label'] = "click";
+         $arrayPostData['messages'][0]['contents']['body']['contents'][0]['action']['uri'] = "https://www.sellterest.com/";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
