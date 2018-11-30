@@ -10,6 +10,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    $arrayHeader[] = "Authorization: Bearer {$access_token}";
    //รับข้อความจากผู้ใช้
    $message = $arrayJson['events'][0]['message']['text'];
+   $replyToken = $arrayJson['events'][0]['replyToken'];
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
    #ตัวอย่าง Message Type "Text + Sticker"
@@ -22,31 +23,31 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       $arrayPostData['messages'][1]['stickerId'] = "34";
       pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
-    
-         $arrayPostData = array(
-              'to' => $id,
-              'messages' => array(
-                  'type' => 'flex',
-                  'altText' => 'GGGGGG',
-                  'contents' => array(
-                    'type' => 'bubble',
-                    'body' => array(
-                     'type' => 'box',
-                     'layout' => 'vertical',
-                     'contents' =>  array(
-                       'type' => 'button',
-                       'style' => 'primary',
-                       'height' => 'sm',
-                       'action' => array(
-                         'type' => 'uri',
-                         'label' => 'aasldjaslda',
-                         'uri' => 'https://www.sellterest.com/'
-                              )
-                           )
-                    )
-                  )
-               )
-          );
+         $data = [
+                 'type' => 'flex',
+                 'altText' => 'GGGGGG',
+                 'contents' => [
+                   'type' => 'bubble',
+                   'body' => [
+                    'type' => 'box',
+                    'layout' => 'vertical',
+                    'contents' =>  [
+                      'type' => 'button',
+                      'style' => 'primary',
+                      'height' => 'sm',
+                      'action' => [
+                        'type' => 'uri',
+                        'label' => 'aasldjaslda',
+                        'uri' => 'https://www.sellterest.com/'
+                             ]
+                          ]
+                   ]
+                 ]
+              ];
+         $arrayPostData = [
+              'replyToken' => $replyToken,
+              'messages' => [$data],
+          ];
       pushMsg($arrayHeader,$arrayPostData);
    }
 
