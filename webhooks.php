@@ -20,7 +20,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       $arrayPostDataM['messages'][1]['type'] = "sticker";
       $arrayPostDataM['messages'][1]['packageId'] = "2";
       $arrayPostDataM['messages'][1]['stickerId'] = "34";
-      $PostData = json_encode($arrayPostDataM)
+      $PostData = json_encode($arrayPostDataM);
       pushMsg($arrayHeader,$PostData);
    }else if($message == "test"){
       $PostData = {
