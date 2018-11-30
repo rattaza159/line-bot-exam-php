@@ -14,16 +14,16 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    $id = $arrayJson['events'][0]['source']['userId'];
    #ตัวอย่าง Message Type "Text + Sticker"
    if($message == "สวัสดี"){
-      $arrayPostDataM['to'] = $id;
-      $arrayPostDataM['messages'][0]['type'] = "text";
-      $arrayPostDataM['messages'][0]['text'] = "สวัสดีจ้าาา";
-      $arrayPostDataM['messages'][1]['type'] = "sticker";
-      $arrayPostDataM['messages'][1]['packageId'] = "2";
-      $arrayPostDataM['messages'][1]['stickerId'] = "34";
-      $PostData = json_encode($arrayPostDataM);
-      pushMsg($arrayHeader,$PostData);
+      $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "สวัสดีจ้าาา";
+      $arrayPostData['messages'][1]['type'] = "sticker";
+      $arrayPostData['messages'][1]['packageId'] = "2";
+      $arrayPostData['messages'][1]['stickerId'] = "34";
+      
+      pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
-      $PostData = {
+      $arrayPostData = {
            "to": $id,
            "messages": [{
                 "type": "flex",
@@ -44,7 +44,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
                 }
                   }]
                 };
-      pushMsg($arrayHeader,$PostData);
+      pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
@@ -53,7 +53,7 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLOPT_POST, true);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $PostData);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
       curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
       $result = curl_exec($ch);
