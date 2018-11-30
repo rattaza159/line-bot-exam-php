@@ -24,8 +24,8 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
    }else if($message == "test"){
     
          $arrayPostData = [
-              "to" => "Uf524e481d3e039764be0ffffd45ee5f3",
-              "messages" => [
+              "to" : $id,
+              "messages" : [
                      {
                        'type' : 'flex',
                        'altText' : 'GGGGGG',
