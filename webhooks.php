@@ -22,27 +22,12 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       $arrayPostData['messages'][1]['stickerId'] = "34";
       pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
-      $arrayPostData = {
-           "to": $id,
-           "messages": {
-                "type": "bubble",
-                "body": {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "md",
-                  "contents": 
-                    [{
-                      "type": "button",
-                      "style": "primary",
-                      "action": [{
-                        "type": "uri",
-                        "label": "Primary style button",
-                        "uri": "https://developers.line.me"
-                      }]
-                    }]
-                    }
-                  }
-                }
+      $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "แย่ๆๆๆๆๆๆๆๆ";
+      $arrayPostData['messages'][1]['type'] = "sticker";
+      $arrayPostData['messages'][1]['packageId'] = "2";
+      $arrayPostData['messages'][1]['stickerId'] = "36";
       pushMsg($arrayHeader,$arrayPostData);
    }
    function pushMsg($arrayHeader,$arrayPostData){
