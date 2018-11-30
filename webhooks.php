@@ -23,31 +23,18 @@ $access_token = '/QDU5VFzEuY50BssaLzvWY4hAwrnFFYIiEB9ZUSkSwPsLodLMHFlG/cd/coaqo+
       $arrayPostData['messages'][1]['stickerId'] = "34";
       pushMsg($arrayHeader,$arrayPostData);
    }else if($message == "test"){
-         $data = [
-                 'type' => 'flex',
-                 'altText' => 'GGGGGG',
-                 'contents' => [
-                   'type' => 'bubble',
-                   'body' => [
-                    'type' => 'box',
-                    'layout' => 'vertical',
-                    'contents' =>  [
-                      'type' => 'button',
-                      'style' => 'primary',
-                      'height' => 'sm',
-                      'action' => [
-                        'type' => 'uri',
-                        'label' => 'aasldjaslda',
-                        'uri' => 'https://www.sellterest.com/'
-                             ]
-                          ]
-                   ]
-                 ]
-              ];
-         $arrayPostData = [
-              'replyToken' => $replyToken,
-              'messages' => [$data],
-          ];
+         $arrayPostData['to'] = $id;
+         $arrayPostData['messages'][0]['type'] = "flex";
+         $arrayPostData['messages'][0]['altText'] = "hello world";
+         $arrayPostData['messages'][0]['contents'][0]['type'] = "bubble";
+         $arrayPostData['messages'][0]['contents'][0]['body'][0]['type'] = "box";
+         $arrayPostData['messages'][0]['contents'][0]['body'][0]['layout'] = "vertical";
+         $arrayPostData['messages'][0]['contents'][0]['body'][0]['contents'][0]['type'] = "button";
+         $arrayPostData['messages'][0]['contents'][0]['body'][0]['contents'][0]['style'] = "primary";
+         $arrayPostData['messages'][0]['contents'][0]['body'][0]['contents'][0]['height'] = "sm";
+         $arrayPostData['messages'][0]['contents'][0]['body'][0]['contents'][0]['action'][0]['type'] = "uri";
+         $arrayPostData['messages'][0]['contents'][0]['body'][0]['contents'][0]['action'][0]['label'] = "click";
+         $arrayPostData['messages'][0]['contents'][0]['body'][0]['contents'][0]['action'][0]['uri'] = "https://www.sellterest.com/";
       pushMsg($arrayHeader,$arrayPostData);
    }
 
